@@ -89,26 +89,27 @@ const pAbordables = document.querySelector(".abordables")
 
 // Définition d'une variable liste de nom des pièces
 const listeNomsPieces = pieces.map(piece => piece.nom);
-for(let i = pieces.length-1 ; i >= 0; i--){
+for(let i=pieces.length-1 ; i >= 0; i--){
     if(pieces[i].prix > 35){
         listeNomsPieces.splice(i,1);
-    };
-};
-
-const listePrixPieces = pieces.map(piece => piece.prix);
-for(let l = pieces.length-1 ; l >= 0; l--){
-    if(pieces[l].prix > 35){
-        listePrixPieces.splice(l,1);
     };
 };
 
 // Affichage de la liste des pièces abordables avec leur prix
 const abordablesElement = document.createElement("ul");
 
-for(let index = 0; index < listeNomsPieces.length; index++){
+for(let i= 0; i < listeNomsPieces.length; i++){
     const nomElement = document.createElement("li");
-    nomElement.innerText = listeNomsPieces[index];
+    nomElement.innerText = listeNomsPieces[i];
     abordablesElement.appendChild(nomElement)
 };
 
 pAbordables.appendChild(abordablesElement);
+
+const listePrixPieces = pieces.map(piece => piece.prix);
+
+for(let l = pieces.length-1 ; l >= 0; l--){
+    if(pieces[l].prix > 35){
+        listePrixPieces.splice(l,1);
+    };
+};
