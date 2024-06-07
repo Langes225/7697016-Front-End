@@ -85,7 +85,7 @@ btnFiltreDescription.addEventListener("click", () => {
 });
 
 // Gestion des pièces abordables
-const pAbordables = document.querySelector(".abordables p") 
+const pAbordables = document.querySelector(".abordables") 
 
 // Définition d'une variable liste de nom des pièces
 const listeNomsPieces = pieces.map(piece => piece.nom);
