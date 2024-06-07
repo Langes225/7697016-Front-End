@@ -18,7 +18,7 @@ const nomElement = document.createElement("h2");
 nomElement.innerText = article.nom;
 
 const prixElement = document.createElement("p");
-prixElement.innerText = `prix: ${article.prix} €`;
+prixElement.innerText = `prix: ${article.prix} € (${article.prix < 35 ? "€" : "€€€"})`;
 
 const categorieElement = document.createElement("p");
 categorieElement.innerText =article.categorie  ?? "(Aucune catégorie)";
