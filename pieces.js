@@ -96,7 +96,7 @@ for(let i = listeNomsPieces -1; i >=0; i--){
     console.log(listeNomsPieces);
 };
 
-// Affichage de la liste des pièces abordables avec leur prix
+// Affichage de la liste des pièces abordables dans le DOM
 const abordablesElements = document.createElement("ul");
 
 for(let i= 0; i < listeNomsPieces.length; i++){
@@ -108,6 +108,7 @@ for(let i= 0; i < listeNomsPieces.length; i++){
 pAbordables.appendChild(abordablesElements);
 
 // Gestion des pièces disponibles
+const piecesDisponibles = document.querySelector(".disponibles")
 const nomDisponibles = pieces.map(piece => piece.nom)
 const prixDisponibles = pieces.map(piece => piece.prix);
 
@@ -118,4 +119,12 @@ for(let l = pieces.length-1 ; l >= 0; l--){
     };
 };
 
+// Liaison de la liste des pièces disponibles et le pris dans le DOM
+const dispoElements = document.createElement("ul");
+for (let index = 0; index < nomDisponibles.length; index++) {
+    const nomElement = document.createElement("li");
+    nomElement.innerText =`${nomDisponibles[index]} - ${prixDisponibles[index]}`;
+    dispoElements.appendChild(nomElement);
+}
 
+piecesDisponibles.appendChild(dispoElements);
