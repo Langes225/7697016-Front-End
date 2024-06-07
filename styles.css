@@ -31,11 +31,12 @@ main {
 }
 
 .filtres {
+	
 	border-radius: 4px;
 	box-shadow: 0px 0px 4px gray;
 	margin: 8px;
 	padding: 8px;
-	min-width: 200px;
+	min-width: 300px;
 	min-height: 400px;
 }
 .filtres h3 {
