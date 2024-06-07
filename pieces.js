@@ -123,7 +123,7 @@ for(let l = pieces.length-1 ; l >= 0; l--){
 const dispoElements = document.createElement("ul");
 for (let index = 0; index < nomDisponibles.length; index++) {
     const nomElement = document.createElement("li");
-    nomElement.innerText =`${nomDisponibles[index]} - ${prixDisponibles[index]}`;
+    nomElement.innerText =`${nomDisponibles[index]} - ${prixDisponibles[index]} €`;
     dispoElements.appendChild(nomElement);
 }
 
