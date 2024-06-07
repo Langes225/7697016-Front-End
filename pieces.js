@@ -83,3 +83,32 @@ btnFiltreDescription.addEventListener("click", () => {
     });
     console.log(piecesFiltrees);
 });
+
+// Gestion des pièces abordables
+const pAbordables = document.querySelector(".abordables p") 
+
+// Définition d'une variable liste de nom des pièces
+const listeNomsPieces = pieces.map(piece => piece.nom);
+for(let i = pieces.length -1 ; 1 >= 0; 1--) {
+    if(pieces[i].prix > 35){
+        listeNomsPieces.splice(i,1);
+    };
+};
+
+const listePrixPieces = pieces.map(piece => piece.prix);
+for(let i = pieces.length -1 ; 1 >= 0; 1--) {
+    if(pieces[i].prix > 35){
+        listePrixPieces.splice(i,1);
+    };
+};
+
+// Affichage de la liste des pièces abordables avec leur prix
+const abordablesElement = document.createElement("ul");
+
+for(let index = 0; index < listeNomsPieces.length; index++){
+    const nomElement = document.createElement("li");
+    nomElement.innerText = listeNomsPieces[index];
+    abordablesElement.appendChild(nomElement)
+};
+
+pAbordables.appendChild(abordablesElement);
