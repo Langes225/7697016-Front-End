@@ -96,9 +96,9 @@ for(let i = pieces.length-1 ; i >= 0; 1--) {
 };
 
 const listePrixPieces = pieces.map(piece => piece.prix);
-for(let i = pieces.length-1 ; i >= 0; 1--) {
-    if(pieces[i].prix > 35){
-        listePrixPieces.splice(i,1);
+for(let l = pieces.length-1 ; l >= 0; 1--) {
+    if(pieces[l].prix > 35){
+        listePrixPieces.splice(l,1);
     };
 };
 
