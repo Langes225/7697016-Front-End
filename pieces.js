@@ -2,41 +2,49 @@
 const reponse = await fetch("pieces-autos.json");
 const pieces = await reponse.json();
 
-for(let i=0; i < pieces.length; i++){
-//je détermine où sera afficher mes articles dans le DOM
-const sectionFiches = document.querySelector(".fiches");
-//Définition d'un article
-const article = pieces[i]
+// Fonction qui génère toute la page web
+function genererPieces(pieces){
+    for(let i=0; i < pieces.length; i++){
 
-//Création des balises
-const pieceElement = document.createElement("article");
-//je donne les caractéristiques de ma pièce par la création des différentes balises
-const imageElement = document.createElement("img");
-imageElement.src = article.image;
+        const sectionFiches = document.querySelector(".fiches");
 
-const nomElement = document.createElement("h2");
-nomElement.innerText = article.nom;
+        const article = pieces[i];
+        //Création de la balise article
+        const pieceElement = document.createElement("article");
+        //Création de la balise image que je lie à l'attribu src
+        const imageElement = document.createElement("img");
+        imageElement.src = pieces[i].image;
+        //Création de la balise h2 que je lie au nom de la piece
+        const nomElement = document.createElement("h2");
+        nomElement.innerText = article.nom;
+        //Création de la balise p que je lie au prix de la piece automobile
+        const prixElement = document.createElement("p");
+        prixElement.innerText = `prix: ${article.prix} € (${article.prix < 35 ? "€" : "€€€"})`;
+        //Création de la balise p que je lie au categorie de la piece automobile
+        const categorieElement = document.createElement("p");
+        categorieElement.innerText =article.categorie  ?? "(Aucune catégorie)";
+        //Création de la balise p que je lie au description de la piece automobile
+        const descriptionElement = document.createElement("p");
+        descriptionElement.innerText = article.description ?? "(Pas de description)";
+        //Création de la balise p que je lie à la disponibilité de la piece automobile
+        const disponibleElement = document.createElement("p"); 
+        disponibleElement.innerText =`${article.disponible ? "En stock" : "Rupture de stock"}`;
 
-const prixElement = document.createElement("p");
-prixElement.innerText = `prix: ${article.prix} € (${article.prix < 35 ? "€" : "€€€"})`;
-
-const categorieElement = document.createElement("p");
-categorieElement.innerText =article.categorie  ?? "(Aucune catégorie)";
-
-const descriptionElement = document.createElement("p");
-descriptionElement.innerText = article.description ?? "(Pas de description)";
-
-const disponibleElement = document.createElement("p"); 
-disponibleElement.innerText =`${article.disponible ? "En stock" : "Rupture de stock"}`;
-
-// Affichage dans la pièce dans la section de la page HTML
-sectionFiches.appendChild(pieceElement);
-pieceElement.appendChild(imageElement);
-pieceElement.appendChild(nomElement);
-pieceElement.appendChild(prixElement);
-pieceElement.appendChild(descriptionElement);
-pieceElement.appendChild(disponibleElement);
+        // On rattache la balise artice à la section fiches du DOM
+        sectionFiches.appendChild(pieceElement);
+        
+        // / On rattache les différentes balises à la balise artice 
+        pieceElement.appendChild(imageElement);
+        pieceElement.appendChild(nomElement);
+        pieceElement.appendChild(prixElement);
+        pieceElement.appendChild(descriptionElement);
+        pieceElement.appendChild(disponibleElement);
+        };
 };
+
+// Première affichage de la page
+genererPieces(pieces);
+
 // Gestion des boutons 
 // Récupération des boutons trier
 const btnTrier = document.querySelector(".btn-trier");
@@ -55,16 +63,18 @@ btnTrier.addEventListener("click", () =>{
     piecesOrdonees.sort(function(a, b){
         return a.prix - b.prix;
     });
-    console.log(piecesOrdonees);
+    document.querySelector(".fiches").innerHTML = "";
+    genererPieces(piecesOrdonees);
 
 });
 
 btnTrierDecrossaint.addEventListener("click", () =>{
-    const piecesOrdonees = Array.from(pieces);
-    piecesOrdonees.sort(function(a, b){
+    const piecesDecrossants = Array.from(pieces);
+    piecesDecrossants.sort(function(a, b){
         return b.prix - a.prix;
     });
-    console.log(piecesOrdonees)
+    document.querySelector(".fiches").innerHTML = "";
+    genererPieces(piecesDecrossants);
 });
 
 
@@ -74,14 +84,16 @@ btnFiltrer.addEventListener("click", () =>{
     const piecesFiltrees = pieces.filter(function(piece){
         return piece.prix <= 35;
     });
-    console.log(piecesFiltrees);
+    document.querySelector(".fiches").innerHTML = "";
+    genererPieces(piecesFiltrees);
 });
 
 btnFiltreDescription.addEventListener("click", () => {
-    const piecesFiltrees = pieces.filter(function(piece){
+    const piecesDescription = pieces.filter(function(piece){
         return piece.description = true;
     });
-    console.log(piecesFiltrees);
+    document.querySelector(".fiches").innerHTML = "";
+    genererPieces(piecesDescription)
 });
 
 // Gestion des pièces abordables
@@ -128,3 +140,5 @@ for (let index = 0; index < nomDisponibles.length; index++) {
 }
 
 piecesDisponibles.appendChild(dispoElements);
+
+// Efface le contenu de la balise body et donc l'écra
