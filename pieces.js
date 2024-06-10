@@ -45,7 +45,7 @@ function genererPieces(pieces){
 // Première affichage de la page
 genererPieces(pieces);
 
-// Gestion des boutons 
+/**Gestion des boutons */
 // Récupération des boutons trier
 const btnTrier = document.querySelector(".btn-trier");
 
