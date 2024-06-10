@@ -140,4 +140,3 @@ for (let index = 0; index < nomDisponibles.length; index++) {
 
 piecesDisponibles.appendChild(dispoElements);
 
-// Efface le contenu de la balise body et donc l'écra
