@@ -29,6 +29,10 @@ function genererPieces(pieces){
         //Création de la balise p que je lie à la disponibilité de la piece automobile
         const disponibleElement = document.createElement("p"); 
         disponibleElement.innerText =`${article.disponible ? "En stock" : "Rupture de stock"}`;
+        // On crée une balise bouton
+        const avisBouton = document.createElement("button");
+        avisBouton.dataset.id = article.id;
+        avisBouton.textContent = "Afficher les avis";
 
         // On rattache la balise artice à la section fiches du DOM
         sectionFiches.appendChild(pieceElement);
@@ -39,6 +43,8 @@ function genererPieces(pieces){
         pieceElement.appendChild(prixElement);
         pieceElement.appendChild(descriptionElement);
         pieceElement.appendChild(disponibleElement);
+        pieceElement.appendChild(avisBouton);
+        
         };
 };
 
