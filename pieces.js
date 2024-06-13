@@ -146,6 +146,7 @@ for (let index = 0; index < nomDisponibles.length; index++) {
     nomElement.innerText =`${nomDisponibles[index]} - ${prixDisponibles[index]} €`;
     dispoElements.appendChild(nomElement);
 }
+const 
 piecesDisponibles.appendChild(dispoElements);
 
 // Gestion de l'input
