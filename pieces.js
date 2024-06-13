@@ -1,7 +1,7 @@
 import { ajouterListenerAvis } from "./avis.js";
 
-// Récupération des piéces à partir du fichier JSON
-const reponse = await fetch("pieces-autos.json");
+// Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
+const reponse = await fetch("http://localhost:8081/pieces");
 const pieces = await reponse.json();
 
 // Fonction qui génère toute la page web

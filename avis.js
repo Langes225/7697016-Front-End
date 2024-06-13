@@ -5,7 +5,15 @@ export function ajouterListenerAvis(){
     for(let i=0; i<piecesElements.length; i++){
         piecesElements[i].addEventListener("click", async function (even) {
             const id = even.target.dataset.id;
-            fetch(`http://localhost:8081/pieces/${id}/avis`);
+            const reponse = await fetch("http://localhost:8081/pieces/" + id + "/avis");
+            const avis = await reponse.json();
+            const pieceElement = even.target.parentElement;
+
+            const avisElement = document.createElement("p")
+            for(let l=0; l<avis.length; l++){
+                avisElement.innerHTML += `${avis[i].utiliaseur}: ${avis[i].commmentaire}`;
+            }
+            pieceElement.appendChild(avisElement);
         })
     }
 }
