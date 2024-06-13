@@ -146,8 +146,9 @@ for (let index = 0; index < nomDisponibles.length; index++) {
     nomElement.innerText =`${nomDisponibles[index]} - ${prixDisponibles[index]} €`;
     dispoElements.appendChild(nomElement);
 }
-const 
-piecesDisponibles.appendChild(dispoElements);
+const pElementDisponible = document.createElement("p");
+pElementDisponible.innerText = "Piéces disponibles :";
+piecesDisponibles.appendChild(pElementDisponible).appendChild(dispoElements);
 
 // Gestion de l'input
 const inputPrixMax = document.querySelector("#prix-maximum");
