@@ -11,7 +11,7 @@ export function ajouterListenerAvis(){
 
             const avisElement = document.createElement("p")
             for(let l=0; l<avis.length; l++){
-                avisElement.innerHTML += `${avis[i].utiliaseur}: ${avis[i].commmentaire}`;
+                avisElement.innerHTML += `${avis[i].utilisateur}: ${avis[i].commmentaire}`;
             }
             pieceElement.appendChild(avisElement);
         })
