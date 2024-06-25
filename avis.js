@@ -17,3 +17,11 @@ export function ajouterListenerAvis(){
         })
     }
 }
+
+// Création d'une fonction ajouter un avis sur une pièce automobile
+export function ajoutListenerEnvoyerAvis() {
+    const formulaireAvis = document.querySelector(".formulaire-avis");
+    formulaireAvis.addEventListener("submit", (even)=>{
+        
+    });
+}

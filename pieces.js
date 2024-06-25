@@ -1,8 +1,11 @@
 import { ajouterListenerAvis } from "./avis.js";
+import { ajoutListenerEnvoyerAvis }  from "./avis.js";
 
 // Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
 const reponse = await fetch('http://localhost:8081/pieces');
 const pieces = await reponse.json();
+// On appelle la fonction pour ajouter un listener au formulaire
+ajoutListenerEnvoyerAvis()
 
 // Fonction qui génère toute la page web
 function genererPieces(pieces){
