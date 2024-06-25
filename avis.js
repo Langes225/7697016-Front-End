@@ -35,7 +35,7 @@ export function ajoutListenerEnvoyerAvis() {
         // Appel de la fonction fetch avec toutes les information neccessaires
         fetch("http://localhost:8081/avis",{
         method: "POST",
-        headers: "application/json",
+        headers: {"Content-type": "application/json"},
         body: chargeUtile
         });
 
