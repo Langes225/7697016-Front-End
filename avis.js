@@ -23,5 +23,21 @@ export function ajoutListenerEnvoyerAvis() {
     const formulaireAvis = document.querySelector(".formulaire-avis");
     formulaireAvis.addEventListener("submit", (even)=>{
         even.preventDefault();
+    // Création de l'objet du nouvel avis
+    const avis = {
+        pieceId: parseInt(even.target.querySelector("[name=piece-id]").value),
+        utilisateur: even.target.querySelector("[name=utilisateur]").value,
+        commentaire: even.target.querySelector("[name=commentaire]").value,
+        nbEtoile: even.target.querySelector("[name=nombre-etoile]").value
+        };
+        // Création de la charge utile
+        const chargeUtile = JSON.stringify(avis);
+        // Appel de la fonction fetch avec toutes les information neccessaires
+        fetch("http://localhost:8081/avis",{
+        method: "POST",
+        headers: "application/json",
+        body: chargeUtile
+        });
+
     });
 }
