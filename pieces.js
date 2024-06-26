@@ -13,7 +13,7 @@ if(pieces === null){
     pieces = JSON.parse(pieces);
 }
 // On appelle la fonction pour ajouter un listener au formulaire
-ajoutListenerEnvoyerAvis();
+ajoutListerEnvoyerAvis();
 
 // Fonction qui génère toute la page web
 function genererPieces(pieces){
