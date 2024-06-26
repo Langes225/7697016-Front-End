@@ -1,5 +1,4 @@
 import { ajoutListenerEnvoyerAvis }  from "./avis.js";
-import { genererPieces } from "./script.js";
 
 // Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
 const reponse = await fetch('http://localhost:8081/pieces');
@@ -10,7 +9,7 @@ ajoutListenerEnvoyerAvis();
 // Première affichage de la page
 genererPieces(pieces);
 
-/ Fonction qui génère toute la page web
+// Fonction qui génère toute la page web
 function genererPieces(pieces){
     for(let i=0; i < pieces.length; i++){
 
