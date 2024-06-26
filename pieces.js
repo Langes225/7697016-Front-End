@@ -1,10 +1,18 @@
 import { ajoutListenerEnvoyerAvis }  from "./avis.js";
 import { ajouterListenerAvis } from "./avis.js";
 
-// Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
-const reponse = await fetch('http://localhost:8081/pieces');
-const pieces = await reponse.json();
-
+let pieces = window.localStorage.setItem('pieces');
+if (pieces === null){
+    // Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
+    const reponse = await fetch('http://localhost:8081/pieces');
+    const pieces = await reponse.json();
+    // Transformation des pièces en json
+    const valeurPieces = JSON.stringify(pieces);
+    // stockage des informations des pièces automobiles dans le localStorage
+    window.localStorage.setItem("pieces", valeurPieces);
+} else {
+    pieces = JSON.parse(pieces);
+}
 // On appelle la fonction pour ajouter un listener au formulaire
 ajoutListenerEnvoyerAvis();
 
@@ -162,3 +170,8 @@ inputPrixMax.addEventListener("input", () =>{
     document.querySelector(".fiches").innerHTML = "";
     genererPieces(piecesFiltrees);
 } )
+
+const btnMaj = document.querySelector(".btn-maj");
+btnMaj.addEventListener("click", () => {
+    window.localStorage.removeItem("nom");
+})
