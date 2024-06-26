@@ -173,5 +173,5 @@ inputPrixMax.addEventListener("input", () =>{
 
 const btnMaj = document.querySelector(".btn-maj");
 btnMaj.addEventListener("click", () => {
-    window.localStorage.removeItem("nom");
+    window.localStorage.removeItem("pieces");
 })
