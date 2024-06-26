@@ -1,7 +1,7 @@
 import { ajoutListenerEnvoyerAvis }  from "./avis.js";
 import { ajouterListenerAvis } from "./avis.js";
 
-let pieces = window.localStorage.setItem('pieces');
+const pieces = window.localStorage.getItem('pieces');
 if(pieces === null){
     // Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
     const reponse = await fetch('http://localhost:8081/pieces');
