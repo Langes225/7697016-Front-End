@@ -15,6 +15,8 @@ export function ajouterListenerAvis(){
         })
     }
 
+}
+
 export function AfficherAvis(pieceElement, avis){
             const avisElement = document.createElement("p")
             for(let l=0; l<avis.length; l++){
