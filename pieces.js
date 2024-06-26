@@ -1,5 +1,5 @@
 import { AfficherAvis, ajoutListerEnvoyerAvis, ajouterListenerAvis } from "./avis.js";
-
+// Récupération des pièces éventuellement stockées dans le localStorage
 let pieces = window.localStorage.getItem('pieces');
 if(pieces === null){
     // Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
