@@ -1,5 +1,4 @@
-import { ajouterListenerAvis } from "./avis.js";
-import { ajoutListenerEnvoyerAvis } from "./avis.js";
+import { ajoutListerEnvoyerAvis, ajouterListenerAvis } from "./avis.js";
 
 let pieces = window.localStorage.getItem('pieces');
 if(pieces === null){
