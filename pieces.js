@@ -1,4 +1,5 @@
 import { ajoutListenerEnvoyerAvis }  from "./avis.js";
+import { ajouterListenerAvis } from "./avis.js";
 
 // Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
 const reponse = await fetch('http://localhost:8081/pieces');
@@ -6,8 +7,6 @@ const pieces = await reponse.json();
 
 // On appelle la fonction pour ajouter un listener au formulaire
 ajoutListenerEnvoyerAvis();
-// Première affichage de la page
-genererPieces(pieces);
 
 // Fonction qui génère toute la page web
 function genererPieces(pieces){
@@ -57,10 +56,12 @@ function genererPieces(pieces){
         ajouterListenerAvis();
 };
 
-             /**Gestion des boutons dans le filtre */
+// Première affichage de la page
+genererPieces(pieces);
+
+/**Gestion des boutons dans le filtre */
 
 // 'écoute de l'événement click sur le bouton trier croissant
-
 const btnTrier = document.querySelector(".btn-trier");
 btnTrier.addEventListener("click", () =>{
     const piecesOrdonees = Array.from(pieces);
