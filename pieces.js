@@ -1,7 +1,7 @@
 import { ajoutListenerEnvoyerAvis }  from "./avis.js";
 import { ajouterListenerAvis } from "./avis.js";
 
-const pieces = window.localStorage.getItem('pieces');
+let pieces = window.localStorage.getItem('pieces');
 if(pieces === null){
     // Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
     const reponse = await fetch('http://localhost:8081/pieces');
@@ -10,7 +10,7 @@ if(pieces === null){
     const valeurPieces = JSON.stringify(pieces);
     // stockage des informations des pièces automobiles dans le localStorage
     window.localStorage.setItem("pieces", valeurPieces);
-} else {
+}else {
     pieces = JSON.parse(pieces);
 }
 // On appelle la fonction pour ajouter un listener au formulaire
