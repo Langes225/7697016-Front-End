@@ -1,4 +1,4 @@
-import { ajoutListerEnvoyerAvis, ajouterListenerAvis } from "./avis.js";
+import { AfficherAvis, ajoutListerEnvoyerAvis, ajouterListenerAvis } from "./avis.js";
 
 let pieces = window.localStorage.getItem('pieces');
 if(pieces === null){
@@ -65,6 +65,16 @@ function genererPieces(pieces){
 
 // Première affichage de la page
 genererPieces(pieces);
+
+for(let i=0; i<pieces.length; i++){
+    const id = pieces[i].id;
+    const avisJSON = window.localStorage.getItem(`avis-piece${id}`);
+    const avis = JSON.parse(avisJSON);
+    if(avisJSON !== null){
+        const pieceElement = document.querySelector(`article[data-id="${id}"]`);
+        AfficherAvis(pieceElement, avis);
+    }
+}
 
 /**Gestion des boutons dans le filtre */
 
