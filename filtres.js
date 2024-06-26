@@ -1,30 +1,25 @@
 import { genererPieces } from "./script";
 
-/**Gestion des boutons */
-// Récupération des boutons trier
-const btnTrier = document.querySelector(".btn-trier");
+                /**Gestion des boutons dans le filtre */
 
-const btnTrierDecrossaint = document.querySelector(".btn-trier-decroissant");
-
-// Récupération des boutons filtre
-const btnFiltrer = document.querySelector(".btn-filtrer");
-
-const btnFiltreDescription = document.querySelector(".btn-filtrer-description");
-
-
-// Ecoute de l'événement click sur le bouton trier croissant
-btnTrier.addEventListener("click", () =>{
-    const piecesOrdonees = Array.from(pieces);
-    piecesOrdonees.sort(function(a, b){
-        return a.prix - b.prix;
+// Création d'une fonction d'écoute de l'événement click sur le bouton trier croissant
+export function ajoutListenerBtnTrier() {
+    const btnTrier = document.querySelector(".btn-trier");
+    btnTrier.addEventListener("click", () =>{
+        const piecesOrdonees = Array.from(pieces);
+        piecesOrdonees.sort(function(a, b){
+            return a.prix - b.prix;
+        });
+        document.querySelector(".fiches").innerHTML = "";
+        genererPieces(piecesOrdonees);
+    
     });
-    document.querySelector(".fiches").innerHTML = "";
-    genererPieces(piecesOrdonees);
+}
 
-});
-
-// Ecoute de l'événement click sur le bouton trier décroissant
-btnTrierDecrossaint.addEventListener("click", () =>{
+// Création d'une fonction d'écoute de l'événement click sur le bouton trier décroissant
+export function ajoutListenerBtnDecroit() {
+    const btnTrierDecrossaint = document.querySelector(".btn-trier-decroissant");
+ btnTrierDecrossaint.addEventListener("click", () =>{
     const piecesDecrossants = Array.from(pieces);
     piecesDecrossants.sort(function(a, b){
         return b.prix - a.prix;
@@ -32,24 +27,29 @@ btnTrierDecrossaint.addEventListener("click", () =>{
     document.querySelector(".fiches").innerHTML = "";
     genererPieces(piecesDecrossants);
 });
-
-// Ecoute de l'évènement click sur le boutons filtre
-btnFiltrer.addEventListener("click", () =>{
+}
+// Création d'une fonction d'écoute de l'évènement click sur le boutons filtre
+export function ajoutListenerBtnFiltrer() {
+    const btnFiltrer = document.querySelector(".btn-filtrer");
+    btnFiltrer.addEventListener("click", () =>{
     const piecesFiltrees = pieces.filter(function(piece){
         return piece.prix <= 35;
     });
     document.querySelector(".fiches").innerHTML = "";
     genererPieces(piecesFiltrees);
 });
-// Ecoute de l'évènement click sur le boutons description
-btnFiltreDescription.addEventListener("click", () => {
+}
+// Création d'une fonction d'écoute de l'évènement click sur le boutons description
+export function ajoutListenerBtnDescrip(){
+    const btnFiltreDescription = document.querySelector(".btn-filtrer-description");
+    btnFiltreDescription.addEventListener("click", () => {
     const piecesDescription = pieces.filter(function(piece){
         return piece.description = true;
     });
     document.querySelector(".fiches").innerHTML = "";
     genererPieces(piecesDescription)
 });
-
+}
 // Gestion des pièces abordables
 const pAbordables = document.querySelector(".abordables") 
 
