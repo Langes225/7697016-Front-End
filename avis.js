@@ -6,10 +6,10 @@ export function ajouterListenerAvis(){
         piecesElements[i].addEventListener("click", async function (even) {
             const id = even.target.dataset.id;
             
-            const reponse = await fetch(`http://localhost:8081/pieces/${id}/avis`);
+            const reponse = await fetch("http://localhost:8081/pieces/" + id + "avis");
             const avis = await reponse.json();
             // Stockage des informations d'avis sur localStorage
-            window.localStorage.setItem(`avis-pieces${id}`, JSON.stringify(avis));
+            window.localStorage.setItem(`avis-piece-${id}`, JSON.stringify(avis));
             const pieceElement = even.target.parentElement;
             AfficherAvis(pieceElement, avis);
         })
