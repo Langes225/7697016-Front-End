@@ -1,4 +1,4 @@
-import { AfficherAvis, ajoutListerEnvoyerAvis, ajouterListenerAvis } from "./avis.js";
+import { AfficherAvis, ajoutListenerEnvoyerAvis, ajouterListenerAvis } from "./avis.js";
 // Récupération des pièces éventuellement stockées dans le localStorage
 let pieces = window.localStorage.getItem('pieces');
 if(pieces === null){
@@ -13,7 +13,7 @@ if(pieces === null){
     pieces = JSON.parse(pieces);
 }
 // On appelle la fonction pour ajouter un listener au formulaire
-ajoutListerEnvoyerAvis();
+ajoutListenerEnvoyerAvis();
 
 // Fonction qui génère toute la page web
 function genererPieces(pieces){
