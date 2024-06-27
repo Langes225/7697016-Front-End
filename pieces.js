@@ -151,7 +151,7 @@ pElementAbordable.innerText = "Piéces abordables :";
 document.querySelector(".abordables").appendChild(pElementAbordable).appendChild(abordablesElements);
 
 // Gestion des pièces disponibles
-const piecesDisponibles = document.querySelector(".disponibles")
+const piecesDisponibles = document.querySelector(".disponibles");
 const nomDisponibles = pieces.map(piece => piece.nom)
 const prixDisponibles = pieces.map(piece => piece.prix);
 
