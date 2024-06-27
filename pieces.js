@@ -17,16 +17,16 @@ if(pieces === null){
 ajoutListenerEnvoyerAvis();
 
 function genererPieces(pieces){
+
     for(let i=0; i < pieces.length; i++){
-
         const sectionFiches = document.querySelector(".fiches");
-
         const article = pieces[i];
         //Création de la balise article
         const pieceElement = document.createElement("article");
+        pieceElement.dataset.id = pieces[i].id;
         //Création de la balise image que je lie à l'attribu src
         const imageElement = document.createElement("img");
-        imageElement.src = pieces[i].image;
+        imageElement.src = article.image;
         //Création de la balise h2 que je lie au nom de la piece
         const nomElement = document.createElement("h2");
         nomElement.innerText = article.nom;
@@ -98,7 +98,7 @@ btnTrier.addEventListener("click", () =>{
 const btnTrierDecrossaint = document.querySelector(".btn-trier-decroissant");
 btnTrierDecrossaint.addEventListener("click", () =>{
 const piecesDecrossants = Array.from(pieces);
-piecesDecrossants.sort(function(a, b){
+piecesDecrossants.sort(function (a, b){
     return b.prix - a.prix;
 });
 document.querySelector(".fiches").innerHTML = "";
@@ -108,7 +108,7 @@ genererPieces(piecesDecrossants);
 
 const btnFiltrer = document.querySelector(".btn-filtrer");
 btnFiltrer.addEventListener("click", () =>{
-const piecesFiltrees = pieces.filter(function(piece){
+const piecesFiltrees = pieces.filter(function (piece){
     return piece.prix <= 35;
 });
 document.querySelector(".fiches").innerHTML = "";
@@ -119,7 +119,7 @@ genererPieces(piecesFiltrees);
 
 const btnFiltreDescription = document.querySelector(".btn-filtrer-description");
 btnFiltreDescription.addEventListener("click", () => {
-const piecesDescription = pieces.filter(function(piece){
+const piecesDescription = pieces.filter(function (piece){
     return piece.description = true;
 });
 document.querySelector(".fiches").innerHTML = "";
@@ -177,14 +177,14 @@ piecesDisponibles.appendChild(pElementDisponible).appendChild(dispoElements);
 const inputPrixMax = document.querySelector("#prix-maximum");
 // Ecoute de l'événement input 
 inputPrixMax.addEventListener("input", () =>{
-    const piecesFiltrees = pieces.filter(function(piece){
+    const piecesFiltrees = pieces.filter(function (piece){
         return piece.prix <= inputPrixMax.value;
-    })
+    });
     document.querySelector(".fiches").innerHTML = "";
     genererPieces(piecesFiltrees);
-} )
+});
 
 const btnMaj = document.querySelector(".btn-maj");
 btnMaj.addEventListener("click", () => {
     window.localStorage.removeItem("pieces");
-})
+});
