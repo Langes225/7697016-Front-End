@@ -1,4 +1,4 @@
-import { ajouterListenerAvis } from "./avis";
+import { ajouterListenerAvis } from "./avis.js";
 // Fonction qui génère toute la page web
 export function genererPieces(pieces){
     for(let i=0; i < pieces.length; i++){
