@@ -145,6 +145,10 @@ for(let i= 0; i < listeNomsPieces.length; i++){
     nomElement.innerText = listeNomsPieces[i];
     abordablesElements.appendChild(nomElement)
 };
+const pElementAbordable = document.createElement("p");
+pElementAbordable.innerText = "Piéces abordables :";
+piecesDisponibles.appendChild(pElementDisponible).appendChild(dispoElements);
+
 
 document.querySelector(".abordables").appendChild(abordablesElements);
 
