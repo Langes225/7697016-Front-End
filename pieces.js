@@ -35,7 +35,7 @@ for(let i=0; i<pieces.length; i++){
 
 // 'écoute de l'événement click sur le bouton trier croissant
 const btnTrier = document.querySelector(".btn-trier");
-btnTrier.addEventListener("click", () =>{
+btnTrier.addEventListener("click", () => {
     const piecesOrdonees = Array.from(pieces);
     piecesOrdonees.sort(function(a, b){
         return a.prix - b.prix;
@@ -49,7 +49,7 @@ btnTrier.addEventListener("click", () =>{
 // Création d'une fonction d'écoute de l'événement click sur le bouton trier décroissant
 
 const btnTrierDecrossaint = document.querySelector(".btn-trier-decroissant");
-btnTrierDecrossaint.addEventListener("click", () =>{
+btnTrierDecrossaint.addEventListener("click", () => {
 const piecesDecrossants = Array.from(pieces);
 piecesDecrossants.sort(function(a, b){
     return b.prix - a.prix;
@@ -60,7 +60,7 @@ genererPieces(piecesDecrossants);
 // Création d'une fonction d'écoute de l'évènement click sur le boutons filtre
 
 const btnFiltrer = document.querySelector(".btn-filtrer");
-btnFiltrer.addEventListener("click", () =>{
+btnFiltrer.addEventListener("click", () => {
 const piecesFiltrees = pieces.filter(function(piece){
     return piece.prix <= 35;
 });
@@ -79,8 +79,8 @@ document.querySelector(".fiches").innerHTML = "";
 genererPieces(piecesDescription)
 });
 
-// Gestion des pièces abordables
-const pAbordables = document.querySelector(".abordables") 
+/** Gestion des pièces abordables */
+
 
 // Définition d'une variable liste de nom des pièces
 const listeNomsPieces = pieces.map(piece => piece.nom);
@@ -99,7 +99,7 @@ for(let i= 0; i < listeNomsPieces.length; i++){
     abordablesElements.appendChild(nomElement)
 };
 
-pAbordables.appendChild(abordablesElements);
+document.querySelector(".abordables") .appendChild(abordablesElements);
 
 // Gestion des pièces disponibles
 const piecesDisponibles = document.querySelector(".disponibles")
