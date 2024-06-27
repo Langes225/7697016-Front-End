@@ -147,10 +147,8 @@ for(let i= 0; i < listeNomsPieces.length; i++){
 };
 const pElementAbordable = document.createElement("p");
 pElementAbordable.innerText = "Piéces abordables :";
-piecesDisponibles.appendChild(pElementDisponible).appendChild(dispoElements);
 
-
-document.querySelector(".abordables").appendChild(abordablesElements);
+document.querySelector(".abordables").appendChild(pElementAbordable).appendChild(abordablesElements);
 
 // Gestion des pièces disponibles
 const piecesDisponibles = document.querySelector(".disponibles")
