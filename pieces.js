@@ -146,7 +146,7 @@ for(let i= 0; i < listeNomsPieces.length; i++){
     abordablesElements.appendChild(nomElement)
 };
 
-document.querySelector(".abordables") .appendChild(abordablesElements);
+document.querySelector(".abordables").appendChild(abordablesElements);
 
 // Gestion des pièces disponibles
 const piecesDisponibles = document.querySelector(".disponibles")
