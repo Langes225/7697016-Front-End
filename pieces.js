@@ -17,7 +17,7 @@ if(pieces === null){
 ajoutListenerEnvoyerAvis();
 
 // On appelle la fonction generer(pieces) pour afficher toutes 
-// Première affichage de la page
+/** Première affichage de la page */
 genererPieces(pieces);
 
 for(let i=0; i<pieces.length; i++){
