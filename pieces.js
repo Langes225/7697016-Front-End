@@ -67,12 +67,12 @@ function genererPieces (pieces) {
 /** Première affichage de la page */
 genererPieces(pieces);
 
-for(let i=0; i<pieces.length; i++){
+for (let i=0; i<pieces.length; i++) {
     const id = pieces[i].id;
     const avisJSON = window.localStorage.getItem(`avis-piece-${id}`);
     const avis = JSON.parse(avisJSON);
 
-    if(avis !== null){
+    if(avis !== null) {
         const pieceElement = document.querySelector(`article[data-id="${id}"]`);
         AfficherAvis(pieceElement, avis);
     }
@@ -82,7 +82,7 @@ for(let i=0; i<pieces.length; i++){
 
 // 'écoute de l'événement click sur le bouton trier croissant
 const btnTrier = document.querySelector(".btn-trier");
-btnTrier.addEventListener("click", () =>{
+btnTrier.addEventListener("click", () => {
     const piecesOrdonees = Array.from(pieces);
     piecesOrdonees.sort(function(a, b){
         return a.prix - b.prix;
@@ -96,7 +96,7 @@ btnTrier.addEventListener("click", () =>{
 // Création d'une fonction d'écoute de l'événement click sur le bouton trier décroissant
 
 const btnTrierDecroissant = document.querySelector(".btn-trier-decroissant");
-btnTrierDecroissant.addEventListener("click", () =>{
+btnTrierDecroissant.addEventListener("click", () => {
 const piecesDecroissants = Array.from(pieces);
 piecesDecroissants.sort(function (a, b){
     return b.prix - a.prix;
@@ -107,7 +107,7 @@ genererPieces(piecesDecroissants);
 // Création d'une fonction d'écoute de l'évènement click sur le boutons filtre
 
 const btnFiltrer = document.querySelector(".btn-filtrer");
-btnFiltrer.addEventListener("click", () =>{
+btnFiltrer.addEventListener("click", () => {
 const piecesFiltrees = pieces.filter(function (piece){
     return piece.prix <= 35;
 });
@@ -131,7 +131,7 @@ genererPieces(piecesDescription)
 
 // Définition d'une variable liste de nom des pièces
 const listeNomsPieces = pieces.map(piece => piece.nom);
-for(let i = listeNomsPieces -1; i >=0; i--){
+for (let i = listeNomsPieces -1; i >=0; i--) {
     if(pieces[i].prix <= 35){
         listeNomsPieces.splice(i,1);
     };
@@ -140,7 +140,7 @@ for(let i = listeNomsPieces -1; i >=0; i--){
 // Affichage de la liste des pièces abordables dans le DOM
 const abordablesElements = document.createElement("ul");
 
-for(let i= 0; i < listeNomsPieces.length; i++){
+for (let i= 0; i < listeNomsPieces.length; i++) {
     const nomElement = document.createElement("li");
     nomElement.innerText = listeNomsPieces[i];
     abordablesElements.appendChild(nomElement)
@@ -155,8 +155,8 @@ const piecesDisponibles = document.querySelector(".disponibles");
 const nomDisponibles = pieces.map(piece => piece.nom)
 const prixDisponibles = pieces.map(piece => piece.prix);
 
-for(let l = pieces.length-1 ; l >= 0; l--){
-    if(pieces[l].disponible === false){
+for (let l = pieces.length-1 ; l >= 0; l--) {
+    if (pieces[l].disponible === false) {
         nomDisponibles.splice(l,1);
         prixDisponibles.splice(l,1);
     };
@@ -177,7 +177,7 @@ piecesDisponibles.appendChild(pElementDisponible).appendChild(dispoElements);
 const inputPrixMax = document.querySelector("#prix-maximum");
 // Ecoute de l'événement input 
 inputPrixMax.addEventListener("input", () =>{
-    const piecesFiltrees = pieces.filter(function (piece){
+    const piecesFiltrees = pieces.filter(function (piece) {
         return piece.prix <= inputPrixMax.value;
     });
     document.querySelector(".fiches").innerHTML = "";
