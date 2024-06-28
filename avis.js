@@ -1,5 +1,5 @@
 // Creation d'une fonction d'écoute d'évènement sur le bouton avis pour chaque pièce automobile
-export function ajouterListenerAvis (){
+export function ajouterListenerAvis () {
     const piecesElements = document.querySelectorAll(".fiches article button");
 
     for(let i=0; i<piecesElements.length; i++){
@@ -17,7 +17,7 @@ export function ajouterListenerAvis (){
 
 }
 
-export function AfficherAvis (pieceElement, avis){
+export function AfficherAvis (pieceElement, avis) {
             const avisElement = document.createElement("p")
             for(let l=0; l<avis.length; l++){
                 avisElement.innerHTML += `<br>${avis[l].utilisateur}:<br>${avis[l].commentaire}<br>`;
