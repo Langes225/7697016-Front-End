@@ -132,7 +132,7 @@ genererPieces(piecesDescription)
 // Définition d'une variable liste de nom des pièces
 const listeNomsPieces = pieces.map(piece => piece.nom);
 for (let i = listeNomsPieces -1; i >=0; i--) {
-    if(pieces[i].prix <= 35){
+    if (pieces[i].prix <= 35) {
         listeNomsPieces.splice(i,1);
     };
 };
