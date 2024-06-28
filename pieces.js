@@ -16,7 +16,7 @@ if(pieces === null){
 // On appelle la fonction pour ajouter un listener au formulaire
 ajoutListenerEnvoyerAvis();
 
-function genererPieces(pieces){
+function genererPieces (pieces){
 
     for(let i=0; i < pieces.length; i++){
         const sectionFiches = document.querySelector(".fiches");
