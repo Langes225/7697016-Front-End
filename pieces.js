@@ -2,7 +2,7 @@ import { AfficherAvis, ajoutListenerEnvoyerAvis, ajouterListenerAvis } from "./a
 
 // Récupération des pièces éventuellement stockées dans le localStorage
 let pieces = window.localStorage.getItem('pieces');
-if(pieces === null){
+if (pieces === null) {
     // Récupération des piéces dépuis  l’API à l’adresse http://localhost:8081/pieces.
     const reponse = await fetch('http://localhost:8081/pieces');
     const pieces = await reponse.json();
@@ -16,15 +16,15 @@ if(pieces === null){
 // On appelle la fonction pour ajouter un listener au formulaire
 ajoutListenerEnvoyerAvis();
 
-function genererPieces (pieces){
+function genererPieces (pieces) {
 
-    for(let i=0; i < pieces.length; i++){
+    for (let i=0; i < pieces.length; i++) {
         const sectionFiches = document.querySelector(".fiches");
         const article = pieces[i];
         //Création de la balise article
         const pieceElement = document.createElement("article");
         pieceElement.dataset.id = pieces[i].id;
-        //Création de la balise image que je lie à l'attribu src
+        //Création de la balise image que je lie à l'attribut src
         const imageElement = document.createElement("img");
         imageElement.src = article.image;
         //Création de la balise h2 que je lie au nom de la piece
@@ -95,14 +95,14 @@ btnTrier.addEventListener("click", () =>{
 
 // Création d'une fonction d'écoute de l'événement click sur le bouton trier décroissant
 
-const btnTrierDecrossaint = document.querySelector(".btn-trier-decroissant");
-btnTrierDecrossaint.addEventListener("click", () =>{
-const piecesDecrossants = Array.from(pieces);
-piecesDecrossants.sort(function (a, b){
+const btnTrierDecroissant = document.querySelector(".btn-trier-decroissant");
+btnTrierDecroissant.addEventListener("click", () =>{
+const piecesDecroissants = Array.from(pieces);
+piecesDecroissants.sort(function (a, b){
     return b.prix - a.prix;
 });
 document.querySelector(".fiches").innerHTML = "";
-genererPieces(piecesDecrossants);
+genererPieces(piecesDecroissants);
 });
 // Création d'une fonction d'écoute de l'évènement click sur le boutons filtre
 
@@ -119,7 +119,7 @@ genererPieces(piecesFiltrees);
 
 const btnFiltreDescription = document.querySelector(".btn-filtrer-description");
 btnFiltreDescription.addEventListener("click", () => {
-const piecesDescription = pieces.filter(function (piece){
+const piecesDescription = pieces.filter(function (piece) {
     return piece.description = true;
 });
 document.querySelector(".fiches").innerHTML = "";
