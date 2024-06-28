@@ -72,7 +72,7 @@ for (let i=0; i<pieces.length; i++) {
     const avisJSON = window.localStorage.getItem(`avis-piece-${id}`);
     const avis = JSON.parse(avisJSON);
 
-    if(avis !== null) {
+    if (avis !== null) {
         const pieceElement = document.querySelector(`article[data-id="${id}"]`);
         AfficherAvis(pieceElement, avis);
     }
@@ -84,7 +84,7 @@ for (let i=0; i<pieces.length; i++) {
 const btnTrier = document.querySelector(".btn-trier");
 btnTrier.addEventListener("click", () => {
     const piecesOrdonees = Array.from(pieces);
-    piecesOrdonees.sort(function(a, b){
+    piecesOrdonees.sort(function (a, b) {
         return a.prix - b.prix;
     });
     document.querySelector(".fiches").innerHTML = "";
@@ -98,7 +98,7 @@ btnTrier.addEventListener("click", () => {
 const btnTrierDecroissant = document.querySelector(".btn-trier-decroissant");
 btnTrierDecroissant.addEventListener("click", () => {
 const piecesDecroissants = Array.from(pieces);
-piecesDecroissants.sort(function (a, b){
+piecesDecroissants.sort(function (a, b) {
     return b.prix - a.prix;
 });
 document.querySelector(".fiches").innerHTML = "";
@@ -108,7 +108,7 @@ genererPieces(piecesDecroissants);
 
 const btnFiltrer = document.querySelector(".btn-filtrer");
 btnFiltrer.addEventListener("click", () => {
-const piecesFiltrees = pieces.filter(function (piece){
+const piecesFiltrees = pieces.filter(function (piece) {
     return piece.prix <= 35;
 });
 document.querySelector(".fiches").innerHTML = "";
